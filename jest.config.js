@@ -30,7 +30,8 @@ const customJestConfig = {
     '^@/lib(.*)$': '<rootDir>/src/lib$1',
     '^@/hooks(.*)$': '<rootDir>/hooks$1',
     '^@/mocks(.*)$': '<rootDir>/__mocks__$1',
-    '^@/tests(.*)$': '<rootDir>/.jest$1'
+    '^@/tests(.*)$': '<rootDir>/.jest$1',
+    '^next/image$': '<rootDir>/__mocks__/image.js'
   }
 };
 

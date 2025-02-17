@@ -11,13 +11,8 @@ exports[`<PokeBadge /> should render the badge 1`] = `
     >
       <img
         alt="fire"
-        data-nimg="1"
-        decoding="async"
         height="13"
-        loading="lazy"
-        src="/_next/image?url=%2Ficons%2Fpng%2Ffilled%2Ffire.png&w=32&q=75"
-        srcset="/_next/image?url=%2Ficons%2Fpng%2Ffilled%2Ffire.png&w=16&q=75 1x, /_next/image?url=%2Ficons%2Fpng%2Ffilled%2Ffire.png&w=32&q=75 2x"
-        style="color: transparent;"
+        src="/icons/png/filled/fire.png"
         width="13"
       />
     </div>

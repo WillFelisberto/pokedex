@@ -10,12 +10,8 @@ exports[`<StatItem /> should render the correct label for height 1`] = `
     >
       <img
         alt="height"
-        data-nimg="1"
-        decoding="async"
         height="18"
-        loading="lazy"
         src="/icons/svg/outlined/height.svg"
-        style="color: transparent;"
         width="18"
       />
       <span>
