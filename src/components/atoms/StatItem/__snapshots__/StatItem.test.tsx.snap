@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StatItem /> should render the correct label for height 1`] = `
+<div>
+  <div
+    class="flex flex-col gap-[4.5px] items-left w-[154px] p-3 rounded-lg  "
+  >
+    <div
+      class="flex items-end gap-[8.5px] text-gray-500 text-xs font-semibold uppercase"
+    >
+      <img
+        alt="height"
+        data-nimg="1"
+        decoding="async"
+        height="18"
+        loading="lazy"
+        src="/icons/svg/outlined/height.svg"
+        style="color: transparent;"
+        width="18"
+      />
+      <span>
+        Altura
+      </span>
+    </div>
+    <div
+      class="mt-1 font-(--font-poppins)  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+    >
+      0.5 m
+    </div>
+  </div>
+</div>
+`;

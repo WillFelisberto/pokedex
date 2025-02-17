@@ -1,10 +1,15 @@
-// You can learn more about each option below in the Jest docs: https://jestjs.io/docs/configuration.
+/* eslint-disable @typescript-eslint/no-require-imports */
+const nextJest = require('next/jest');
 
-module.exports = {
-  roots: ['<rootDir>'],
-  testEnvironment: 'jest-environment-jsdom',
-  testRegex: '(/__tests__/.*|(\\.|/)(test))\\.[jt]sx?$',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
+const createJestConfig = nextJest({
+  dir: './' // Caminho do seu projeto Next.js
+});
+
+/** @type {import('jest').Config} */
+const customJestConfig = {
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'], // Configuração de ambiente
+  testEnvironment: 'jest-environment-jsdom', // Definir o ambiente de teste
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>[/\\\\](node_modules|.next)[/\\\\]',
@@ -12,46 +17,14 @@ module.exports = {
     '<rootDir>/__mocks__/*'
   ],
   transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
-
   transform: {
-    // Use babel-jest to transpile tests with the next/babel preset
-    // https://jestjs.io/docs/configuration#transform-objectstring-pathtotransformer--pathtotransformer-object
     '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
   },
-  watchPlugins: ['jest-watch-typeahead/filename'],
-  collectCoverage: false,
-  coverageThreshold: {
-    global: {
-      branches: 70,
-      functions: 70,
-      lines: 70,
-      statements: 70
-    }
-  },
-  coverageReporters: ['json', 'html'],
-  collectCoverageFrom: [
-    '<rootDir>/src/**/*.*',
-    '!**/*.d.ts',
-    '!**/node_modules/**',
-    '!<rootDir>/src/components/**/*.stories.*',
-    '!<rootDir>/src/pages/_app.tsx'
-  ],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
-    // Handle CSS imports (with CSS modules)
-    // https://jestjs.io/docs/webpack#mocking-css-modules
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
-
     '^lucide-react$': '<rootDir>/__mocks__/lucide-react.js',
-
-    // Handle CSS imports (without CSS modules)
     '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
-
-    // Handle image imports
-    // https://jestjs.io/docs/webpack#handling-static-assets
     '^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$': `<rootDir>/__mocks__/fileMock.js`,
-
-    // Handle module aliases
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@/lib(.*)$': '<rootDir>/src/lib$1',
@@ -60,3 +33,6 @@ module.exports = {
     '^@/tests(.*)$': '<rootDir>/.jest$1'
   }
 };
+
+// Criar configuração final do Jest
+module.exports = createJestConfig(customJestConfig);
