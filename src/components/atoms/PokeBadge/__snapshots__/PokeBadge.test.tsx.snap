@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PokeBadge /> should render the badge 1`] = `
+<div>
+  <div
+    class="flex w-fit items-center gap-2 text-white px-3 py-2 rounded-full bg-pokemon-fire"
+    data-testid="poke-badge"
+  >
+    <div
+      class="w-6 h-6 flex items-center bg-white justify-center rounded-full overflow-visible"
+    >
+      <img
+        alt="fire"
+        data-nimg="1"
+        decoding="async"
+        height="13"
+        loading="lazy"
+        src="/_next/image?url=%2Ficons%2Fpng%2Ffilled%2Ffire.png&w=32&q=75"
+        srcset="/_next/image?url=%2Ficons%2Fpng%2Ffilled%2Ffire.png&w=16&q=75 1x, /_next/image?url=%2Ficons%2Fpng%2Ffilled%2Ffire.png&w=32&q=75 2x"
+        style="color: transparent;"
+        width="13"
+      />
+    </div>
+    <span
+      class="font-semibold text-sm"
+    >
+      Fire
+    </span>
+  </div>
+</div>
+`;

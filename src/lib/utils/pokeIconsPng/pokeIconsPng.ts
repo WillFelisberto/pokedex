@@ -1,0 +1,42 @@
+export const pokemonIcons = {
+  outlined: {
+    normal: '/icons/png/outlined/normal.png',
+    fire: '/icons/png/outlined/fire.png',
+    water: '/icons/png/outlined/water.png',
+    electric: '/icons/png/outlined/electric.png',
+    grass: '/icons/png/outlined/grass.png',
+    ice: '/icons/png/outlined/ice.png',
+    fighting: '/icons/png/outlined/fighting.png',
+    poison: '/icons/png/outlined/poison.png',
+    ground: '/icons/png/outlined/ground.png',
+    flying: '/icons/png/outlined/flying.png',
+    psychic: '/icons/png/outlined/psychic.png',
+    bug: '/icons/png/outlined/bug.png',
+    rock: '/icons/png/outlined/rock.png',
+    ghost: '/icons/png/outlined/ghost.png',
+    dragon: '/icons/png/outlined/dragon.png',
+    dark: '/icons/png/outlined/dark.png',
+    steel: '/icons/png/outlined/steel.png',
+    fairy: '/icons/png/outlined/fairy.png'
+  },
+  filled: {
+    normal: '/icons/png/filled/normal.png',
+    fire: '/icons/png/filled/fire.png',
+    water: '/icons/png/filled/water.png',
+    electric: '/icons/png/filled/electric.png',
+    grass: '/icons/png/filled/grass.png',
+    ice: '/icons/png/filled/ice.png',
+    fighting: '/icons/png/filled/fighting.png',
+    poison: '/icons/png/filled/poison.png',
+    ground: '/icons/png/filled/ground.png',
+    flying: '/icons/png/filled/flying.png',
+    psychic: '/icons/png/filled/psychic.png',
+    bug: '/icons/png/filled/bug.png',
+    rock: '/icons/png/filled/rock.png',
+    ghost: '/icons/png/filled/ghost.png',
+    dragon: '/icons/png/filled/dragon.png',
+    dark: '/icons/png/filled/dark.png',
+    steel: '/icons/png/filled/steel.png',
+    fairy: '/icons/png/filled/fairy.png'
+  }
+};
