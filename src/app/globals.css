@@ -5,6 +5,26 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Cores dos tipos de Pokémon */
+  --pokemon-normal: #919aa2;
+  --pokemon-fire: #ff9d55;
+  --pokemon-water: #5090d6;
+  --pokemon-electric: #f4d23c;
+  --pokemon-grass: #63bc5a;
+  --pokemon-ice: #73cec0;
+  --pokemon-fighting: #ce416b;
+  --pokemon-poison: #b567ce;
+  --pokemon-ground: #d97845;
+  --pokemon-flying: #89aae3;
+  --pokemon-psychic: #fa7179;
+  --pokemon-bug: #91c12f;
+  --pokemon-rock: #c5b78c;
+  --pokemon-ghost: #5269ad;
+  --pokemon-dragon: #0b6dc3;
+  --pokemon-dark: #5a5465;
+  --pokemon-steel: #5a8ea2;
+  --pokemon-fairy: #ec8fe6;
 }
 
 @media (prefers-color-scheme: dark) {

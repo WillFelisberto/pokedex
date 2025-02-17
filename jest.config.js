@@ -42,6 +42,8 @@ module.exports = {
     // https://jestjs.io/docs/webpack#mocking-css-modules
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
 
+    '^lucide-react$': '<rootDir>/__mocks__/lucide-react.js',
+
     // Handle CSS imports (without CSS modules)
     '^.+\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
 
