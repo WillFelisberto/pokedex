@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PokemonStatus /> should render the correct values 1`] = `
+<div>
+  <div
+    class="grid grid-cols-2 gap-2"
+  >
+    <div
+      class="flex flex-col gap-[4.5px] items-left  p-3 rounded-lg  "
+    >
+      <div
+        class="flex items-end gap-[8.5px] text-gray-500 text-xs font-semibold uppercase"
+      >
+        <img
+          alt="weight"
+          height="18"
+          src="/icons/svg/outlined/weight.svg"
+          width="18"
+        />
+        <span>
+          Peso
+        </span>
+      </div>
+      <div
+        class="mt-1 font-(--font-poppins)  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+      >
+        10 kg
+      </div>
+    </div>
+    <div
+      class="flex flex-col gap-[4.5px] items-left  p-3 rounded-lg  "
+    >
+      <div
+        class="flex items-end gap-[8.5px] text-gray-500 text-xs font-semibold uppercase"
+      >
+        <img
+          alt="height"
+          height="18"
+          src="/icons/svg/outlined/height.svg"
+          width="18"
+        />
+        <span>
+          Altura
+        </span>
+      </div>
+      <div
+        class="mt-1 font-(--font-poppins)  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+      >
+        1 m
+      </div>
+    </div>
+  </div>
+</div>
+`;
