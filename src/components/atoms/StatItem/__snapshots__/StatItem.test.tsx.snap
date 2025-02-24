@@ -3,23 +3,23 @@
 exports[`<StatItem /> should render the correct label for height 1`] = `
 <div>
   <div
-    class="flex flex-col gap-[4.5px] items-left  p-3 rounded-lg  "
+    class="flex flex-col gap-[4.5px] items-left   rounded-lg  "
   >
     <div
-      class="flex items-end gap-[8.5px] text-gray-500 text-xs font-semibold uppercase"
+      class="flex items-end gap-[8.5px] h-[16px] text-gray-500 text-xs font-semibold uppercase"
     >
       <img
         alt="height"
-        height="18"
+        height="15"
         src="/icons/svg/outlined/height.svg"
-        width="18"
+        width="15"
       />
       <span>
         Altura
       </span>
     </div>
     <div
-      class="mt-1 font-(--font-poppins)  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+      class="mt-1 font-(--font-poppins) h-[42px]  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
     >
       0.5 m
     </div>

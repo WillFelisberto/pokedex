@@ -6,7 +6,7 @@ import { convertHectogramsToKilograms, convertDecimetresToMeters } from '@/lib/u
 type PokemonStatusProps = Pick<PokemonProps, 'height' | 'weight'>;
 
 export const PokemonStatus = ({ height, weight }: PokemonStatusProps) => (
-  <div className="grid grid-cols-2 gap-2">
+  <div className="grid grid-cols-2 w-full gap-[20px]">
     <StatItem type="weight" value={`${convertHectogramsToKilograms(weight)} kg`} />
     <StatItem type="height" value={`${convertDecimetresToMeters(height)} m`} />
   </div>
