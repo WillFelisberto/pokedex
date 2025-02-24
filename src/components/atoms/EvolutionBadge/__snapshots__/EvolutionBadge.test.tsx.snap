@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EvolutionBadge /> should render the evolution name and formatted id 1`] = `
+<div>
+  <div
+    class="flex flex-row w-full items-center gap-2 border border-[#E6E6E6]  rounded-[40px]"
+  >
+    <div
+      class="rounded-[40px] relative w-[95px] h-[95px] flex items-center justify-center"
+      style="background: red;"
+    >
+      <img
+        alt="grass"
+        height="65"
+        src="/dummy-icon.png"
+        style="mask-image: linear-gradient(135deg, rgba(0 0 0 / 50%), rgba(0,0,0,0)); filter: brightness(10);"
+        width="65"
+      />
+      <div
+        class="absolute inset-0 flex items-center justify-center"
+      >
+        <img
+          alt="bulbasaur"
+          height="120"
+          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+          width="120"
+        />
+      </div>
+    </div>
+    <div
+      class="text-left"
+    >
+      <h4
+        class="font-bold text-base text-left text-black capitalize"
+      >
+        bulbasaur
+      </h4>
+      <span
+        class="text-xs font-bold text-gray-700 text-left"
+      >
+        Nº001
+      </span>
+      <div
+        class="flex gap-2 flex-wrap"
+      >
+        <span>
+          grass
+        </span>
+        <span>
+          poison
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
