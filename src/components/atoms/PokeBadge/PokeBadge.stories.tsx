@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { PokeBadge } from './PokeBadge';
 
 // Defina os tipos de Pokémon disponíveis
-const pokemonTypes = [
+export const PokemonTypes = [
   'normal',
   'fire',
   'water',
@@ -33,7 +33,7 @@ const meta: Meta<typeof PokeBadge> = {
       control: {
         type: 'select'
       },
-      options: pokemonTypes, // Define os tipos como opções no select
+      options: PokemonTypes, // Define os tipos como opções no select
       description: 'Selecione um tipo de Pokémon',
       defaultValue: 'normal'
     }

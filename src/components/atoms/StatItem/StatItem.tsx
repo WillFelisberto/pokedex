@@ -17,9 +17,7 @@ export const StatItem: React.FC<StatItemProps> = ({ value, type, className }) =>
   };
 
   return (
-    <div
-      className={clsx('flex flex-col gap-[4.5px] items-left w-[154px] p-3 rounded-lg  ', className)}
-    >
+    <div className={clsx('flex flex-col gap-[4.5px] items-left  p-3 rounded-lg  ', className)}>
       <div className="flex items-end gap-[8.5px] text-gray-500 text-xs font-semibold uppercase">
         <Image src={`/icons/svg/outlined/${type}.svg`} alt={type} width={18} height={18} />
         <span>{labelText[type] || type}</span>

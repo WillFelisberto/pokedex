@@ -3,11 +3,12 @@
 exports[`<PokeBadge /> should render the badge 1`] = `
 <div>
   <div
+    aria-label="fire"
     class="flex w-fit items-center gap-2 text-white px-3 py-2 rounded-full bg-pokemon-fire"
     data-testid="poke-badge"
   >
     <div
-      class="w-6 h-6 flex items-center bg-white justify-center rounded-full overflow-visible"
+      class="w-6 h-6 flex items-center justify-center rounded-full overflow-visible bg-white"
     >
       <img
         alt="fire"

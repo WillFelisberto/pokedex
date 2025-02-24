@@ -3,35 +3,43 @@
 exports[`<PokemonHeader /> should render the Pokemon sprite 1`] = `
 <div>
   <div
-    class="relative w-full h-[307px] flex items-center justify-center rounded-b-3xl overflow-hidden"
-    data-testid="pokemon-header"
-    style="clip-path: ellipse(60% 65% at 50% 30%);"
+    class="relative w-full h-[280px] flex flex-col items-center justify-center rounded-b-3xl overflow-hidden"
   >
     <div
-      class="absolute inset-0 flex items-center justify-center  "
+      class="relative w-full h-full flex items-center justify-center"
+      data-testid="pokemon-header"
+      style="clip-path: ellipse(60% 65% at 50% 30%);"
     >
       <div
-        class="absolute inset-0 w-1/2 bg-gradient-to-l from-white/15 to-transparent"
-      />
-      <div
-        class="absolute top-[10%] "
+        class="absolute inset-0 flex items-center justify-center"
       >
-        <img
-          alt="fire"
-          height="140"
-          src="/icons/png/filled/fire.png"
-          style="mask-image: linear-gradient(135deg, rgba(0 0 0 / 50%), rgba(0,0,0,0)); filter: brightness(10);"
-          width="140"
+        <div
+          class="absolute inset-0 w-1/2 bg-gradient-to-l from-white/15 to-transparent"
         />
+        <div
+          class="relative"
+        >
+          <img
+            alt="fire"
+            height="140"
+            src="/icons/png/filled/fire.png"
+            style="mask-image: linear-gradient(135deg, rgba(0 0 0 / 50%), rgba(0,0,0,0)); filter: brightness(10);"
+            width="140"
+          />
+        </div>
       </div>
     </div>
+    <div
+      class="  w-full flex justify-center mt-[5rem] absolute"
+    >
+      <img
+        alt="Charizard"
+        class="z-10"
+        height="215"
+        src="/sprites/charizard.png"
+        width="215"
+      />
+    </div>
   </div>
-  <img
-    alt="Charizard"
-    class="absolute z-10 left-1/2 transform bottom-0 -translate-x-1/2"
-    height="215"
-    src="/sprites/charizard.png"
-    width="215"
-  />
 </div>
 `;
