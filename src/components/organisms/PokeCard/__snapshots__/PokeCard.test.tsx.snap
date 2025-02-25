@@ -6,160 +6,164 @@ exports[`PokeCard Should render the component 1`] = `
     class="bg-white min-w-[360px] max-w-[360px] p-2 rounded-lg text-center flex flex-col gap-4"
     data-testid="poke-card"
   >
-    <div
-      class="relative w-full h-[280px] flex flex-col items-center justify-center rounded-b-3xl overflow-hidden"
+    <a
+      href="/pokemon/2"
     >
       <div
-        class="relative w-full h-full flex items-center justify-center"
-        data-testid="pokemon-header"
-        style="clip-path: ellipse(60% 65% at 50% 30%);"
+        class="relative w-full h-[280px] flex flex-col items-center justify-center rounded-b-3xl overflow-hidden"
       >
         <div
-          class="absolute inset-0 flex items-center justify-center"
+          class="relative w-full h-full flex items-center justify-center"
+          data-testid="pokemon-header"
+          style="clip-path: ellipse(60% 65% at 50% 30%);"
         >
           <div
-            class="absolute inset-0 w-1/2 bg-gradient-to-l from-white/15 to-transparent"
+            class="absolute inset-0 flex items-center justify-center"
+          >
+            <div
+              class="absolute inset-0 w-1/2 bg-gradient-to-l from-white/15 to-transparent"
+            />
+            <div
+              class="relative"
+            >
+              <img
+                alt="grass"
+                height="140"
+                src="/icons/png/filled/grass.png"
+                style="mask-image: linear-gradient(135deg, rgba(0 0 0 / 50%), rgba(0,0,0,0)); filter: brightness(10);"
+                width="140"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="  w-full flex justify-center mt-[5rem] absolute"
+        >
+          <img
+            alt="ivysaur"
+            class="z-10"
+            height="215"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
+            width="215"
           />
+        </div>
+      </div>
+      <div
+        class="p-2 text-left"
+      >
+        <h2
+          class="text-black font-bold capitalize text-3xl"
+          data-testid="pokemon-name"
+        >
+          ivysaur
+        </h2>
+        <p
+          class="text-base text-gray-700"
+          data-testid="pokemon-id"
+        >
+          Nº002
+        </p>
+      </div>
+      <div
+        class="p-2 flex gap-2"
+        data-testid="pokemon-types"
+      >
+        <div
+          aria-label="grass"
+          class="flex w-fit items-center gap-2 text-white px-3 py-2 rounded-full bg-pokemon-grass"
+          data-testid="poke-badge"
+        >
           <div
-            class="relative"
+            class="w-6 h-6 flex items-center justify-center rounded-full overflow-visible bg-white"
           >
             <img
               alt="grass"
-              height="140"
+              height="13"
               src="/icons/png/filled/grass.png"
-              style="mask-image: linear-gradient(135deg, rgba(0 0 0 / 50%), rgba(0,0,0,0)); filter: brightness(10);"
-              width="140"
+              width="13"
             />
           </div>
+          <span
+            class="font-semibold text-sm"
+          >
+            Grass
+          </span>
         </div>
-      </div>
-      <div
-        class="  w-full flex justify-center mt-[5rem] absolute"
-      >
-        <img
-          alt="ivysaur"
-          class="z-10"
-          height="215"
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"
-          width="215"
-        />
-      </div>
-    </div>
-    <div
-      class="p-2 text-left"
-    >
-      <h2
-        class="text-black font-bold capitalize text-3xl"
-        data-testid="pokemon-name"
-      >
-        ivysaur
-      </h2>
-      <p
-        class="text-base text-gray-700"
-        data-testid="pokemon-id"
-      >
-        Nº002
-      </p>
-    </div>
-    <div
-      class="p-2 flex gap-2"
-      data-testid="pokemon-types"
-    >
-      <div
-        aria-label="grass"
-        class="flex w-fit items-center gap-2 text-white px-3 py-2 rounded-full bg-pokemon-grass"
-        data-testid="poke-badge"
-      >
         <div
-          class="w-6 h-6 flex items-center justify-center rounded-full overflow-visible bg-white"
-        >
-          <img
-            alt="grass"
-            height="13"
-            src="/icons/png/filled/grass.png"
-            width="13"
-          />
-        </div>
-        <span
-          class="font-semibold text-sm"
-        >
-          Grass
-        </span>
-      </div>
-      <div
-        aria-label="poison"
-        class="flex w-fit items-center gap-2 text-white px-3 py-2 rounded-full bg-pokemon-poison"
-        data-testid="poke-badge"
-      >
-        <div
-          class="w-6 h-6 flex items-center justify-center rounded-full overflow-visible bg-white"
-        >
-          <img
-            alt="poison"
-            height="13"
-            src="/icons/png/filled/poison.png"
-            width="13"
-          />
-        </div>
-        <span
-          class="font-semibold text-sm"
-        >
-          Poison
-        </span>
-      </div>
-    </div>
-    <div
-      class="p-2 w-full flex gap-[20px]"
-    >
-      <div
-        class="grid grid-cols-2 w-full gap-[20px]"
-      >
-        <div
-          class="flex flex-col gap-[4.5px] items-left   rounded-lg  "
+          aria-label="poison"
+          class="flex w-fit items-center gap-2 text-white px-3 py-2 rounded-full bg-pokemon-poison"
+          data-testid="poke-badge"
         >
           <div
-            class="flex items-end gap-[8.5px] h-[16px] text-gray-500 text-xs font-semibold uppercase"
+            class="w-6 h-6 flex items-center justify-center rounded-full overflow-visible bg-white"
           >
             <img
-              alt="weight"
-              height="18"
-              src="/icons/svg/outlined/weight.svg"
-              width="18"
+              alt="poison"
+              height="13"
+              src="/icons/png/filled/poison.png"
+              width="13"
             />
-            <span>
-              Peso
-            </span>
           </div>
-          <div
-            class="mt-1 font-(--font-poppins) h-[42px]  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+          <span
+            class="font-semibold text-sm"
           >
-            13 kg
-          </div>
+            Poison
+          </span>
         </div>
+      </div>
+      <div
+        class="p-2 w-full flex gap-[20px]"
+      >
         <div
-          class="flex flex-col gap-[4.5px] items-left   rounded-lg  "
+          class="grid grid-cols-2 w-full gap-[20px]"
         >
           <div
-            class="flex items-end gap-[8.5px] h-[16px] text-gray-500 text-xs font-semibold uppercase"
+            class="flex flex-col gap-[4.5px] items-left   rounded-lg  "
           >
-            <img
-              alt="height"
-              height="15"
-              src="/icons/svg/outlined/height.svg"
-              width="15"
-            />
-            <span>
-              Altura
-            </span>
+            <div
+              class="flex items-end gap-[8.5px] h-[16px] text-gray-500 text-xs font-semibold uppercase"
+            >
+              <img
+                alt="weight"
+                height="18"
+                src="/icons/svg/outlined/weight.svg"
+                width="18"
+              />
+              <span>
+                Peso
+              </span>
+            </div>
+            <div
+              class="mt-1 font-(--font-poppins) h-[42px]  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+            >
+              13 kg
+            </div>
           </div>
           <div
-            class="mt-1 font-(--font-poppins) h-[42px]  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+            class="flex flex-col gap-[4.5px] items-left   rounded-lg  "
           >
-            1 m
+            <div
+              class="flex items-end gap-[8.5px] h-[16px] text-gray-500 text-xs font-semibold uppercase"
+            >
+              <img
+                alt="height"
+                height="15"
+                src="/icons/svg/outlined/height.svg"
+                width="15"
+              />
+              <span>
+                Altura
+              </span>
+            </div>
+            <div
+              class="mt-1 font-(--font-poppins) h-[42px]  w-full py-[8px] bg-white rounded-[15px] text-gray-800 font-bold text-lg text-center border border-[#E5E5E5]"
+            >
+              1 m
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 `;

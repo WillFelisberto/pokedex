@@ -41,7 +41,7 @@ export const PokeCard: React.FC<{ pokemon: PokemonProps }> = ({ pokemon }) => {
       key={pokemon.id}
       className="bg-white min-w-[360px] max-w-[360px] p-2 rounded-lg text-center flex flex-col gap-4"
     >
-      <Link href={`/${pokemon.id}`}>
+      <Link href={`/pokemon/${pokemon.id}`}>
         <PokemonHeader
           name={pokemon.name}
           spriteUrl={pokemon.sprites.front_default}
