@@ -60,7 +60,7 @@ const processEvolutionNode = async (
 };
 
 const fetchPokemons = async (offset: number): Promise<PokemonProps[]> => {
-  const res = await fetch(`${API_URL}/pokemon?offset=${offset}&limit=15`);
+  const res = await fetch(`${API_URL}/pokemon?offset=${offset}&limit=12`);
   const data = await res.json();
 
   // Buscar detalhes de cada Pokémon individualmente

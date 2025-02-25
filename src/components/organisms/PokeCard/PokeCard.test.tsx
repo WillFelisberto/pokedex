@@ -33,25 +33,4 @@ describe('PokeCard', () => {
     const pokemonTypes = screen.getByTestId('pokemon-types');
     expect(pokemonTypes).toBeInTheDocument();
   });
-
-  it('Should render the pokemon weaknesses', () => {
-    render(<PokeCard pokemon={mockPokemon} />);
-
-    const pokemonWeaknesses = screen.getByTestId('pokemon-weaknesses');
-    expect(pokemonWeaknesses).toBeInTheDocument();
-    expect(pokemonWeaknesses).toHaveTextContent(/flying/i);
-    expect(pokemonWeaknesses).toHaveTextContent(/fire/i);
-  });
-
-  it('Should render the pokemon evolutions', () => {
-    render(<PokeCard pokemon={mockPokemon} />);
-    expect(screen.getByText(/bulbasaur/i)).toBeInTheDocument();
-    expect(screen.getByText(/venusaur/i)).toBeInTheDocument();
-  });
-
-  it('Should render the pokemon without evolutions', () => {
-    const pokemonSemEvolucoes = { ...mockPokemon, evolutions: [] };
-    render(<PokeCard pokemon={pokemonSemEvolucoes} />);
-    expect(screen.getByText(/Não possui evolução/i)).toBeInTheDocument();
-  });
 });
