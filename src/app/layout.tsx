@@ -1,3 +1,4 @@
+import { BackgroundColorProvider } from '@/context/BackgroundColorContext';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Poppins } from 'next/font/google';
 
@@ -37,7 +38,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <BackgroundColorProvider>
+          <Providers>{children}</Providers>
+        </BackgroundColorProvider>
       </body>
     </html>
   );

@@ -11,6 +11,8 @@ import { formatPokemonId } from '@/lib/utils/StatusConvert';
 export interface PokemonProps {
   id: number;
   name: string;
+  japaneseName?: string;
+  region: string;
   sprites: {
     front_default: string;
   };
@@ -31,6 +33,14 @@ export interface PokemonProps {
   genderRatio: {
     male: number;
     female: number;
+  };
+  baseStats: {
+    hp: number;
+    attack: number;
+    defense: number;
+    specialAttack: number;
+    specialDefense: number;
+    speed: number;
   };
 }
 
