@@ -6,6 +6,7 @@ interface LoaderProps {
 
 export const Loader = ({ fullScreen = true }: LoaderProps) => (
   <div
+    data-testid="loader"
     className={`flex justify-center items-center ${
       fullScreen ? 'fixed top-0 left-0 w-screen h-screen bg-red-600 z-50' : ''
     }`}

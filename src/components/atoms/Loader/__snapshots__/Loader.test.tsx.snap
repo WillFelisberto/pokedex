@@ -4,6 +4,7 @@ exports[`<Loader /> should render the component 1`] = `
 <div>
   <div
     class="flex justify-center items-center fixed top-0 left-0 w-screen h-screen bg-red-600 z-50"
+    data-testid="loader"
   >
     <div
       class="w-24 h-24"

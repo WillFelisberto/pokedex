@@ -16,58 +16,107 @@ describe('<PokemonList />', () => {
     mockUsePokemonList.mockReturnValue({
       pokemons: mockPokemons,
       isFetching: false,
-      loadMore: jest.fn()
+      currentPage: 1,
+      setSearchQuery: jest.fn(),
+      error: null,
+      totalPages: 10,
+      goToPage: jest.fn()
     });
   });
 
-  it('Should render pokemons', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should render the list of pokemons', () => {
     const { container } = render(<PokemonList />);
 
     mockPokemons.forEach((pokemon) => {
-      const pokemonName = screen.getByTestId('pokemon-name');
+      const pokemonName = screen.getByText(pokemon.name);
       expect(pokemonName).toBeInTheDocument();
-      expect(pokemonName).toHaveTextContent(pokemon.name);
     });
 
     expect(container).toMatchSnapshot();
   });
 
-  it('Should render the "Carregar Mais" button', () => {
-    render(<PokemonList />);
-    expect(screen.getByText('Carregar Mais')).toBeInTheDocument();
-  });
-
-  it('Should call loadMore when the "Carregar Mais" button is clicked', () => {
-    render(<PokemonList />);
-
-    const button = screen.getByText('Carregar Mais');
-    fireEvent.click(button);
-
-    expect(mockUsePokemonList().loadMore).toHaveBeenCalled();
-  });
-
-  it('Should render "Carregando..." when isFetching is true', () => {
+  it('should render the loader when isFetching is true', () => {
     mockUsePokemonList.mockReturnValue({
       pokemons: [],
       isFetching: true,
-      loadMore: jest.fn()
+      currentPage: 1,
+      totalPages: 10,
+      setSearchQuery: jest.fn(),
+      error: null,
+      goToPage: jest.fn()
     });
 
     render(<PokemonList />);
 
-    expect(screen.getByText('Carregando...')).toBeInTheDocument();
+    expect(screen.getByTestId('loader')).toBeInTheDocument();
   });
 
-  it('Should disable the "Carregar Mais" button when isFetching is true', () => {
+  it('should render pagination', () => {
+    render(<PokemonList />);
+
+    expect(screen.getByText('1')).toBeInTheDocument();
+    expect(screen.getByText('→')).toBeInTheDocument();
+  });
+
+  it('should disable pagination buttons when fetching', () => {
     mockUsePokemonList.mockReturnValue({
       pokemons: [],
       isFetching: true,
-      loadMore: jest.fn()
+      currentPage: 1,
+      totalPages: 10,
+      setSearchQuery: jest.fn(),
+      error: null,
+      goToPage: jest.fn()
     });
 
     render(<PokemonList />);
 
-    const button = screen.getByText('Carregando...');
-    expect(button).toBeDisabled();
+    expect(screen.getByText('←')).toBeDisabled();
+    expect(screen.getByText('→')).toBeDisabled();
+  });
+
+  it('should call goToPage when clicking on pagination buttons', () => {
+    render(<PokemonList />);
+
+    const nextButton = screen.getByText('→');
+    fireEvent.click(nextButton);
+
+    expect(mockUsePokemonList().goToPage).toHaveBeenCalledWith(2);
+  });
+
+  it('should disable the previous button on the first page', () => {
+    mockUsePokemonList.mockReturnValue({
+      pokemons: [],
+      isFetching: false,
+      currentPage: 1,
+      totalPages: 10,
+      setSearchQuery: jest.fn(),
+      error: null,
+      goToPage: jest.fn()
+    });
+
+    render(<PokemonList />);
+
+    expect(screen.getByText('←')).toBeDisabled();
+  });
+
+  it('should disable the next button on the last page', () => {
+    mockUsePokemonList.mockReturnValue({
+      pokemons: [],
+      isFetching: false,
+      currentPage: 10,
+      totalPages: 10,
+      setSearchQuery: jest.fn(),
+      error: null,
+      goToPage: jest.fn()
+    });
+
+    render(<PokemonList />);
+
+    expect(screen.getByText('→')).toBeDisabled();
   });
 });

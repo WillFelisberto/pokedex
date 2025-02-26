@@ -49,7 +49,7 @@ export const PokeCard: React.FC<{ pokemon: PokemonProps }> = ({ pokemon }) => {
     <div
       data-testid="poke-card"
       key={pokemon.id}
-      className="bg-white min-w-[360px] max-w-[360px] p-2 rounded-lg text-center flex flex-col gap-4"
+      className="bg-white min-w-[340px] max-w-[340px] p-2 rounded-lg text-center flex flex-col gap-4"
     >
       <Link href={`/pokemon/${pokemon.id}`}>
         <PokemonHeader

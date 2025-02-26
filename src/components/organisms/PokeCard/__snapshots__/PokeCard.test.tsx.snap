@@ -3,7 +3,7 @@
 exports[`PokeCard Should render the component 1`] = `
 <div>
   <div
-    class="bg-white min-w-[360px] max-w-[360px] p-2 rounded-lg text-center flex flex-col gap-4"
+    class="bg-white min-w-[340px] max-w-[340px] p-2 rounded-lg text-center flex flex-col gap-4"
     data-testid="poke-card"
   >
     <a

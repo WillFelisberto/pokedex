@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PokemonList /> Should render pokemons 1`] = `
+exports[`<PokemonList /> should render the list of pokemons 1`] = `
 <div>
   <div
     class="flex flex-col items-center p-4"
   >
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-[10px]  "
+      class="flex flex-wrap justify-center gap-[1.5rem] w-full max-w-[1440px] px-4 sm:px-0"
     >
       <div
-        class="bg-white min-w-[360px] max-w-[360px] p-2 rounded-lg text-center flex flex-col gap-4"
+        class="bg-white min-w-[340px] max-w-[340px] p-2 rounded-lg text-center flex flex-col gap-4"
         data-testid="poke-card"
       >
         <a
@@ -172,11 +172,46 @@ exports[`<PokemonList /> Should render pokemons 1`] = `
         </a>
       </div>
     </div>
-    <button
-      class="mt-4 px-4 py-2 bg-blue-500 text-black rounded-lg disabled:opacity-50"
+    <div
+      class="flex items-center gap-2 py-4"
     >
-      Carregar Mais
-    </button>
+      <button
+        class="px-4 py-2 bg-gray-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition"
+        disabled=""
+      >
+        ←
+      </button>
+      <button
+        class="px-4 py-2 rounded-md transition bg-blue-600 text-white font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        1
+      </button>
+      <button
+        class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        2
+      </button>
+      <button
+        class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        3
+      </button>
+      <button
+        class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        4
+      </button>
+      <button
+        class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        5
+      </button>
+      <button
+        class="px-4 py-2 bg-gray-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition"
+      >
+        →
+      </button>
+    </div>
   </div>
 </div>
 `;
