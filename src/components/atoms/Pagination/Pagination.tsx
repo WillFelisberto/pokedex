@@ -1,3 +1,4 @@
+import { usePagination } from '@/context/PaginationContext';
 import React from 'react';
 
 interface PaginationProps {
@@ -13,6 +14,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   goToPage,
   isFetching
 }) => {
+  const { setCurrentPage } = usePagination();
   if (!totalPages) return null;
 
   const getPagesToShow = () => {
@@ -35,11 +37,26 @@ export const Pagination: React.FC<PaginationProps> = ({
     return pages;
   };
 
+  const handleNextPage = () => {
+    setCurrentPage(currentPage + 1);
+    goToPage(currentPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage(currentPage - 1);
+    goToPage(currentPage - 1);
+  };
+
+  const handleClickPage = (page: number) => {
+    setCurrentPage(page);
+    goToPage(page);
+  };
+
   return (
     <div className="flex items-center gap-2 py-4">
       <button
         className="px-4 py-2 bg-gray-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition"
-        onClick={() => goToPage(currentPage - 1)}
+        onClick={() => handlePrevPage()}
         disabled={isFetching || currentPage === 1}
       >
         ←
@@ -53,7 +70,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               ? 'bg-blue-600 text-white font-bold'
               : 'bg-gray-700 text-white hover:bg-gray-600'
           } disabled:opacity-50 disabled:cursor-not-allowed`}
-          onClick={() => goToPage(page)}
+          onClick={() => handleClickPage(page)}
           disabled={isFetching}
         >
           {page}
@@ -62,7 +79,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
       <button
         className="px-4 py-2 bg-gray-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition"
-        onClick={() => goToPage(currentPage + 1)}
+        onClick={() => handleNextPage()}
         disabled={isFetching || currentPage >= totalPages}
       >
         →

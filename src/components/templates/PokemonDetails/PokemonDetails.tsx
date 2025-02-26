@@ -1,8 +1,11 @@
 'use client';
 
+import { usePagination } from '@/context/PaginationContext';
 import { useImageColors } from '@/hooks/useImageColors';
+import { ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
 
+import { Button } from '@/components/atoms/Button';
 import { Loader } from '@/components/atoms/Loader';
 import { PokeBadge } from '@/components/atoms/PokeBadge';
 import { StatsPill } from '@/components/atoms/StatsPill';
@@ -31,12 +34,21 @@ export const PokemonDetails = ({
   | 'region'
 >) => {
   const { isLoading } = useImageColors(sprites.front_default);
+  const { currentPage } = usePagination();
 
   return (
     <>
       {isLoading && <Loader />}
       <section className="max-w-7xl mx-auto px-4 flex flex-col gap-4 justify-center h-full lg:h-screen">
         {/* Nome e ID do Pokémon */}
+        <div>
+          <Button
+            href={`/?page=/${currentPage}`}
+            icon={<ChevronLeft />}
+            className="bg-transparent w-fit transform hover:bg-opacity-10 hover:bg-white"
+            onClick={() => history.back()}
+          ></Button>
+        </div>
         <section className="flex flex-col gap-1">
           <p className="text-lg font-bold">{`#${id}`}</p>
           <h1 className="text-4xl font-bold capitalize">{name}</h1>

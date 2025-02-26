@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import React from 'react';
 
 import { PokeBadge } from '@/components/atoms/PokeBadge';
@@ -45,13 +46,16 @@ export interface PokemonProps {
 }
 
 export const PokeCard: React.FC<{ pokemon: PokemonProps }> = ({ pokemon }) => {
+  const searchParams = useSearchParams();
+  const currentPage = searchParams.get('page') || '1'; // Obtém a página ou assume 1
+
   return (
     <div
       data-testid="poke-card"
       key={pokemon.id}
       className="bg-white min-w-[340px] max-w-[340px] p-2 rounded-lg text-center flex flex-col gap-4"
     >
-      <Link href={`/pokemon/${pokemon.id}`}>
+      <Link href={`/pokemon/${pokemon.id}?page=${currentPage}`}>
         <PokemonHeader
           name={pokemon.name}
           spriteUrl={pokemon.sprites.front_default}

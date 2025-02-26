@@ -1,4 +1,5 @@
 import { BackgroundColorProvider } from '@/context/BackgroundColorContext';
+import { PaginationProvider } from '@/context/PaginationContext';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Poppins, Press_Start_2P } from 'next/font/google';
 
@@ -45,9 +46,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pressStart2P.variable} ${poppins.variable} antialiased`}
       >
-        <BackgroundColorProvider>
-          <Providers>{children}</Providers>
-        </BackgroundColorProvider>
+        <PaginationProvider>
+          <BackgroundColorProvider>
+            <Providers>{children}</Providers>
+          </BackgroundColorProvider>
+        </PaginationProvider>
       </body>
     </html>
   );
