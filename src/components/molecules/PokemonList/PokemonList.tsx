@@ -1,7 +1,7 @@
 'use client';
 
 import { usePokemonList } from '@/hooks/usePokemonList';
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { Loader } from '@/components/atoms/Loader';
 import { Pagination } from '@/components/atoms/Pagination';
@@ -15,9 +15,11 @@ export const PokemonList = () => {
       {isFetching && <Loader />}
 
       <div className="flex flex-wrap justify-center gap-[1.5rem] w-full max-w-[1440px] px-4 sm:px-0">
-        {pokemons.map((pokemon) => (
-          <PokeCard key={pokemon.id} pokemon={pokemon} />
-        ))}
+        <Suspense fallback={<Loader fullScreen={false} />}>
+          {pokemons.map((pokemon) => (
+            <PokeCard key={pokemon.id} pokemon={pokemon} />
+          ))}
+        </Suspense>
       </div>
 
       <Pagination

@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 import { Footer } from '@/components/atoms/Footer';
 import { Header } from '@/components/atoms/Header';
+import { Loader } from '@/components/atoms/Loader';
 import { PokemonList } from '@/components/molecules/PokemonList';
 
 import { env } from '@/lib/env';
@@ -40,7 +42,9 @@ export default function Home() {
       <Header />
       <main className="items-center bg-gray-200 justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]">
         <div className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-          <PokemonList />
+          <Suspense fallback={<Loader fullScreen={false} />}>
+            <PokemonList />
+          </Suspense>
         </div>
       </main>
       <Footer />
