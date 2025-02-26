@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from '@tanstack/react-query';
 
-const API_URL = 'https://pokeapi.co/api/v2';
+const API_URL = process.env.NEXT_PUBLIC_POKEAPI_URL;
 
 const generationToRegionMap: Record<string, string> = {
   'generation-i': 'Kanto',

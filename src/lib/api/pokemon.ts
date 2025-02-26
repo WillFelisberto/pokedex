@@ -81,7 +81,7 @@ function extractPokemonId(url: string): number {
 }
 
 export async function fetchPokemonById(id: string): Promise<PokemonProps> {
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_POKEAPI_URL}/pokemon/${id}`);
   if (!response.ok) throw new Error('Pokémon não encontrado');
 
   const data = await response.json();

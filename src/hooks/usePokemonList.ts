@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 import { PokemonType } from '@/lib/utils/poketypes';
 
-const API_URL = 'https://pokeapi.co/api/v2';
+const API_URL = process.env.NEXT_PUBLIC_POKEAPI_URL;
 const POKEMONS_PER_PAGE = 12;
 
 const fetchPokemons = async (page: number) => {

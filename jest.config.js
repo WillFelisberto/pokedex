@@ -16,10 +16,17 @@ const customJestConfig = {
     '<rootDir>/.jest/test-utils.tsx',
     '<rootDir>/__mocks__/*'
   ],
-  transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
+  transformIgnorePatterns: [
+    '/node_modules/(?!(@t3-oss/env-nextjs|@t3-oss/env-core)/)', // Adicione também '@t3-oss/env-core'
+    '^.+\\.module\\.(css|sass|scss)$'
+  ],
   transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
+    '^.+\\.(js|jsx|ts|tsx)$': [
+      'babel-jest',
+      { presets: ['next/babel'], plugins: ['@babel/plugin-transform-modules-commonjs'] }
+    ]
   },
+  extensionsToTreatAsEsm: ['.ts', '.tsx'], // Habilita suporte a ES Modules no Jest
   moduleNameMapper: {
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '^lucide-react$': '<rootDir>/__mocks__/lucide-react.js',
