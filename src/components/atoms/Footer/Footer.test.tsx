@@ -19,6 +19,6 @@ describe('<Footer />', () => {
     render(<Footer />);
 
     const footer = screen.getByRole('contentinfo');
-    expect(footer).toHaveClass('bg-transparent', 'bottom-0', 'w-full');
+    expect(footer).toHaveClass('bg-gray-200', 'bottom-0', 'w-full');
   });
 });

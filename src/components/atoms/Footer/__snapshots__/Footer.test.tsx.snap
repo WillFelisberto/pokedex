@@ -3,7 +3,7 @@
 exports[`<Footer /> should render the footer with correct text and link 1`] = `
 <div>
   <footer
-    class="  bottom-0 w-full bg-transparent text-white text-center p-4"
+    class="bg-gray-200 bottom-0 w-full text-gray-500 text-center p-4"
   >
     Made with 
     <span
@@ -14,7 +14,7 @@ exports[`<Footer /> should render the footer with correct text and link 1`] = `
      by
      
     <a
-      class="underline hover:text-gray-400"
+      class="underline  text-gray-500 hover:text-gray-800"
       href="https://github.com/willFelisberto/"
       rel="noopener noreferrer"
       target="_blank"

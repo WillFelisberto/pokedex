@@ -15,7 +15,7 @@ exports[`<StatItem /> should render the correct label for height 1`] = `
         width="15"
       />
       <span>
-        Altura
+        Height
       </span>
     </div>
     <div

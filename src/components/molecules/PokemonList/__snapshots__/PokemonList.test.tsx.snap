@@ -136,7 +136,7 @@ exports[`<PokemonList /> should render the list of pokemons 1`] = `
                     width="18"
                   />
                   <span>
-                    Peso
+                    Weight
                   </span>
                 </div>
                 <div
@@ -158,7 +158,7 @@ exports[`<PokemonList /> should render the list of pokemons 1`] = `
                     width="15"
                   />
                   <span>
-                    Altura
+                    Height
                   </span>
                 </div>
                 <div

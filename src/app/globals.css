@@ -7,6 +7,8 @@
   --foreground: #171717;
   --font-poppins: 'Poppins', sans-serif;
 
+  --font-press-start-2p: 'Press Start 2P', cursive;
+
   /* Cores dos tipos de Pokémon */
   --pokemon-normal: #919aa2;
   --pokemon-fire: #ff9d55;

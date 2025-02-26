@@ -10,10 +10,10 @@ interface StatItemProps {
 
 export const StatItem: React.FC<StatItemProps> = ({ value, type, className }) => {
   const labelText = {
-    height: 'Altura',
-    weight: 'Peso',
-    category: 'Categoria',
-    ability: 'Habilidade'
+    height: 'Height',
+    weight: 'Weight',
+    category: 'Category',
+    ability: 'Ability'
   };
 
   return (

@@ -130,7 +130,7 @@ exports[`PokeCard Should render the component 1`] = `
                 width="18"
               />
               <span>
-                Peso
+                Weight
               </span>
             </div>
             <div
@@ -152,7 +152,7 @@ exports[`PokeCard Should render the component 1`] = `
                 width="15"
               />
               <span>
-                Altura
+                Height
               </span>
             </div>
             <div

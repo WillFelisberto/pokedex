@@ -18,7 +18,7 @@ exports[`<PokemonStatus /> should render the correct values 1`] = `
           width="18"
         />
         <span>
-          Peso
+          Weight
         </span>
       </div>
       <div
@@ -40,7 +40,7 @@ exports[`<PokemonStatus /> should render the correct values 1`] = `
           width="15"
         />
         <span>
-          Altura
+          Height
         </span>
       </div>
       <div
