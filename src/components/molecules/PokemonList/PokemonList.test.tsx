@@ -1,3 +1,4 @@
+import { PaginationProvider } from '@/context/PaginationContext';
 import { usePokemonList } from '@/hooks/usePokemonList';
 import { mockPokemon } from '@/mocks/pokemonMock';
 import { render, screen, fireEvent } from '@testing-library/react';
@@ -6,10 +7,19 @@ import React from 'react';
 import { PokemonList } from './PokemonList';
 
 jest.mock('@/hooks/usePokemonList');
+jest.mock('next/navigation', () => ({
+  useSearchParams: () => ({
+    get: jest.fn().mockReturnValue('1') // Simula "page=1" na URL
+  })
+}));
 
 const mockUsePokemonList = usePokemonList as jest.MockedFunction<typeof usePokemonList>;
 
 const mockPokemons = [mockPokemon];
+
+const renderWithProvider = (ui: React.ReactNode) => {
+  return render(<PaginationProvider>{ui}</PaginationProvider>);
+};
 
 describe('<PokemonList />', () => {
   beforeEach(() => {
@@ -29,7 +39,7 @@ describe('<PokemonList />', () => {
   });
 
   it('should render the list of pokemons', () => {
-    const { container } = render(<PokemonList />);
+    const { container } = renderWithProvider(<PokemonList />);
 
     mockPokemons.forEach((pokemon) => {
       const pokemonName = screen.getByText(pokemon.name);
@@ -50,13 +60,13 @@ describe('<PokemonList />', () => {
       goToPage: jest.fn()
     });
 
-    render(<PokemonList />);
+    renderWithProvider(<PokemonList />);
 
     expect(screen.getByTestId('loader')).toBeInTheDocument();
   });
 
   it('should render pagination', () => {
-    render(<PokemonList />);
+    renderWithProvider(<PokemonList />);
 
     expect(screen.getByText('1')).toBeInTheDocument();
     expect(screen.getByText('→')).toBeInTheDocument();
@@ -73,14 +83,14 @@ describe('<PokemonList />', () => {
       goToPage: jest.fn()
     });
 
-    render(<PokemonList />);
+    renderWithProvider(<PokemonList />);
 
     expect(screen.getByText('←')).toBeDisabled();
     expect(screen.getByText('→')).toBeDisabled();
   });
 
   it('should call goToPage when clicking on pagination buttons', () => {
-    render(<PokemonList />);
+    renderWithProvider(<PokemonList />);
 
     const nextButton = screen.getByText('→');
     fireEvent.click(nextButton);
@@ -99,7 +109,7 @@ describe('<PokemonList />', () => {
       goToPage: jest.fn()
     });
 
-    render(<PokemonList />);
+    renderWithProvider(<PokemonList />);
 
     expect(screen.getByText('←')).toBeDisabled();
   });
@@ -115,7 +125,7 @@ describe('<PokemonList />', () => {
       goToPage: jest.fn()
     });
 
-    render(<PokemonList />);
+    renderWithProvider(<PokemonList />);
 
     expect(screen.getByText('→')).toBeDisabled();
   });

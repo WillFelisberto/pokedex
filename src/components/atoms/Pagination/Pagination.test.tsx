@@ -1,6 +1,11 @@
+import { PaginationProvider } from '@/context/PaginationContext';
 import { render, screen, fireEvent } from '@/tests/test-utils';
 
 import { Pagination } from '.';
+
+const renderWithProvider = (ui: React.ReactNode) => {
+  return render(<PaginationProvider>{ui}</PaginationProvider>);
+};
 
 describe('<Pagination />', () => {
   const mockGoToPage = jest.fn();
@@ -10,7 +15,7 @@ describe('<Pagination />', () => {
   });
 
   it('should render pagination with correct number of pages', () => {
-    const { container } = render(
+    const { container } = renderWithProvider(
       <Pagination currentPage={3} totalPages={10} goToPage={mockGoToPage} isFetching={false} />
     );
 
@@ -22,7 +27,7 @@ describe('<Pagination />', () => {
   });
 
   it('should call goToPage when clicking on a page number', () => {
-    render(
+    renderWithProvider(
       <Pagination currentPage={3} totalPages={10} goToPage={mockGoToPage} isFetching={false} />
     );
 
@@ -31,7 +36,7 @@ describe('<Pagination />', () => {
   });
 
   it('should disable previous button on first page', () => {
-    render(
+    renderWithProvider(
       <Pagination currentPage={1} totalPages={10} goToPage={mockGoToPage} isFetching={false} />
     );
 
@@ -39,7 +44,7 @@ describe('<Pagination />', () => {
   });
 
   it('should disable next button on last page', () => {
-    render(
+    renderWithProvider(
       <Pagination currentPage={10} totalPages={10} goToPage={mockGoToPage} isFetching={false} />
     );
 
@@ -47,7 +52,7 @@ describe('<Pagination />', () => {
   });
 
   it('should disable all buttons while fetching', () => {
-    render(
+    renderWithProvider(
       <Pagination currentPage={3} totalPages={10} goToPage={mockGoToPage} isFetching={true} />
     );
 

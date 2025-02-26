@@ -13,7 +13,7 @@ exports[`<PokemonList /> should render the list of pokemons 1`] = `
         data-testid="poke-card"
       >
         <a
-          href="/pokemon/2"
+          href="/pokemon/2?page=1"
         >
           <div
             class="relative w-full h-[280px] flex flex-col items-center justify-center rounded-b-3xl overflow-hidden"

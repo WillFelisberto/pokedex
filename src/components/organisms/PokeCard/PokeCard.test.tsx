@@ -4,6 +4,12 @@ import React from 'react';
 
 import { PokeCard } from './PokeCard';
 
+jest.mock('next/navigation', () => ({
+  useSearchParams: () => ({
+    get: jest.fn().mockReturnValue('1') // Simula "page=1" na URL
+  })
+}));
+
 describe('PokeCard', () => {
   it('Should render the component', () => {
     const { container } = render(<PokeCard pokemon={mockPokemon} />);

@@ -1,3 +1,4 @@
+import { PaginationProvider } from '@/context/PaginationContext';
 import { useImageColors } from '@/hooks/useImageColors';
 import { render, screen } from '@/tests/test-utils';
 
@@ -39,11 +40,15 @@ const mockPokemon: Pick<
   }
 };
 
+const renderWithProvider = (ui: React.ReactNode) => {
+  return render(<PaginationProvider>{ui}</PaginationProvider>);
+};
+
 describe('<PokemonDetails />', () => {
   it('should render the Pokémon details correctly', () => {
     (useImageColors as jest.Mock).mockReturnValue({ isLoading: false });
 
-    render(<PokemonDetails {...mockPokemon} />);
+    renderWithProvider(<PokemonDetails {...mockPokemon} />);
 
     expect(screen.getByText(`#${mockPokemon.id}`)).toBeInTheDocument();
     expect(screen.getByText(mockPokemon.name)).toBeInTheDocument();
@@ -74,7 +79,7 @@ describe('<PokemonDetails />', () => {
   it('should show the loader when isLoading is true', () => {
     (useImageColors as jest.Mock).mockReturnValue({ isLoading: true });
 
-    render(<PokemonDetails {...mockPokemon} />);
+    renderWithProvider(<PokemonDetails {...mockPokemon} />);
 
     expect(screen.getByAltText('Loading...')).toBeInTheDocument();
   });
@@ -82,7 +87,7 @@ describe('<PokemonDetails />', () => {
   it('should not show the loader when isLoading is false', () => {
     (useImageColors as jest.Mock).mockReturnValue({ isLoading: false });
 
-    render(<PokemonDetails {...mockPokemon} />);
+    renderWithProvider(<PokemonDetails {...mockPokemon} />);
 
     expect(screen.queryByAltText('Loading...')).not.toBeInTheDocument();
   });
