@@ -3,6 +3,18 @@ import { useQuery } from '@tanstack/react-query';
 
 const API_URL = 'https://pokeapi.co/api/v2';
 
+const generationToRegionMap: Record<string, string> = {
+  'generation-i': 'Kanto',
+  'generation-ii': 'Johto',
+  'generation-iii': 'Hoenn',
+  'generation-iv': 'Sinnoh',
+  'generation-v': 'Unova',
+  'generation-vi': 'Kalos',
+  'generation-vii': 'Alola',
+  'generation-viii': 'Galar',
+  'generation-ix': 'Paldea'
+};
+
 const getIdFromSpeciesUrl = (url: string): number => {
   const parts = url.split('/');
 
@@ -25,7 +37,8 @@ const getPokemonDetailsById = async (id: number) => {
       name: a.ability.name,
       is_hidden: a.is_hidden
     })),
-    speciesUrl: details.species.url
+    speciesUrl: details.species.url,
+    stats: details.stats
   };
 };
 
@@ -74,6 +87,26 @@ const fetchPokemonById = async (id: number) => {
   // Buscar informações de evolução
   const speciesRes = await fetch(details.speciesUrl);
   const speciesData = await speciesRes.json();
+
+  // Pegando o nome em japonês da lista de nomes
+  const japaneseNameEntry = speciesData.names.find((n: any) => n.language.name === 'ja');
+  const japaneseName = japaneseNameEntry ? japaneseNameEntry.name : 'Desconhecido';
+
+  // Identificando a geração e mapeando para a região correspondente
+  const generationName = speciesData.generation.name;
+  const region = generationToRegionMap[generationName] || 'Desconhecida';
+
+  // Pegando os base stats
+  const baseStats = {
+    hp: details.stats.find((s: any) => s.stat.name === 'hp')?.base_stat || 0,
+    attack: details.stats.find((s: any) => s.stat.name === 'attack')?.base_stat || 0,
+    defense: details.stats.find((s: any) => s.stat.name === 'defense')?.base_stat || 0,
+    specialAttack: details.stats.find((s: any) => s.stat.name === 'special-attack')?.base_stat || 0,
+    specialDefense:
+      details.stats.find((s: any) => s.stat.name === 'special-defense')?.base_stat || 0,
+    speed: details.stats.find((s: any) => s.stat.name === 'speed')?.base_stat || 0
+  };
+
   const evolutionRes = await fetch(speciesData.evolution_chain.url);
   const evolutionData = await evolutionRes.json();
 
@@ -88,6 +121,9 @@ const fetchPokemonById = async (id: number) => {
   return {
     id: details.id,
     name: details.name,
+    japaneseName, // Adicionando nome japonês
+    region,
+    baseStats,
     weight: details.weight,
     height: details.height,
     sprite: details.sprite,
