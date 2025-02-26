@@ -3,6 +3,16 @@ import { PokemonProps } from '@/components/organisms/PokeCard';
 export const mockPokemon: PokemonProps = {
   id: 2,
   name: 'ivysaur',
+  baseStats: {
+    hp: 45,
+    attack: 49,
+    defense: 49,
+    specialAttack: 65,
+    specialDefense: 65,
+    speed: 45
+  },
+  japaneseName: 'イビス',
+  region: 'Kanto',
   sprites: {
     front_default:
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png'

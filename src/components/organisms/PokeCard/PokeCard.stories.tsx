@@ -9,6 +9,16 @@ const meta: Meta<typeof PokeCard> = {
   args: {
     // Valores padrão para as props
     pokemon: {
+      baseStats: {
+        hp: 45,
+        attack: 49,
+        defense: 49,
+        specialAttack: 65,
+        specialDefense: 65,
+        speed: 45
+      },
+      japaneseName: 'イビス',
+      region: 'Kanto',
       id: 2,
       name: 'ivysaur',
       sprites: {
@@ -70,6 +80,16 @@ export const Default: Story = {};
 export const SemEvolucoes: Story = {
   args: {
     pokemon: {
+      baseStats: {
+        hp: 45,
+        attack: 49,
+        defense: 49,
+        specialAttack: 65,
+        specialDefense: 65,
+        speed: 45
+      },
+      japaneseName: 'イビス',
+      region: 'Kanto',
       ...(meta.args?.pokemon ?? {}),
       evolutions: [], // Remove as evoluções
       id: 2, // Ensure id is defined
@@ -99,6 +119,16 @@ export const SemEvolucoes: Story = {
 export const Charmander: Story = {
   args: {
     pokemon: {
+      baseStats: {
+        hp: 45,
+        attack: 49,
+        defense: 49,
+        specialAttack: 65,
+        specialDefense: 65,
+        speed: 45
+      },
+      japaneseName: 'イビス',
+      region: 'Kanto',
       id: 4,
       name: 'charmander',
       sprites: {
