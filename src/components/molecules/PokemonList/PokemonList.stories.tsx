@@ -7,8 +7,6 @@ import { PokeCard } from '@/components/organisms/PokeCard';
 
 const MockedPokemonList = () => {
   const pokemons = [mockPokemon];
-  const isFetching = false;
-  const loadMore = () => console.warn('Load More clicked');
 
   return (
     <div className="flex flex-col items-center p-4">
@@ -17,13 +15,6 @@ const MockedPokemonList = () => {
           <PokeCard key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
-      <button
-        onClick={loadMore}
-        disabled={isFetching}
-        className="mt-4 px-4 py-2 bg-blue-500 text-black rounded-lg disabled:opacity-50"
-      >
-        {isFetching ? 'Carregando...' : 'Carregar Mais'}
-      </button>
     </div>
   );
 };
