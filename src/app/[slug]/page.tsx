@@ -42,12 +42,14 @@ export default async function PokemonDetailsPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-
   const pokemon = await fetchPokemonById(slug);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_POKEAPI_URL}/pokemon?limit=1`);
+  const data = await response.json();
+  const totalPages = data.count;
 
   return (
     <Suspense fallback={<Loader />}>
-      <PokemonDetails {...pokemon} />
+      <PokemonDetails totalPages={totalPages} {...pokemon} />
     </Suspense>
   );
 }

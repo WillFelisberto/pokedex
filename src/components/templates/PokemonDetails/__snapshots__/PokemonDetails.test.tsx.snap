@@ -1,0 +1,305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PokemonDetails /> should render the Pokémon details correctly 1`] = `
+<div>
+  <section
+    class="max-w-7xl mx-auto px-4 flex flex-col gap-4 justify-center min-h-screen flex-grow  "
+  >
+    <section
+      class="flex flex-col gap-1"
+    >
+      <p
+        class="text-lg font-bold"
+      >
+        #25
+      </p>
+      <h1
+        class="text-4xl font-bold capitalize"
+      >
+        pikachu
+      </h1>
+    </section>
+    <div
+      class="flex flex-col lg:flex-row md:flex-col sm:flex-col"
+    >
+      <section
+        class="flex w-[90%] flex-col lg:flex-row justify-between w-full gap-4"
+      >
+        <div
+          class="w-full lg:w-[10%] flex-shrink-0 flex self-center"
+        >
+          <p
+            class="lg:-rotate-90 text-nowrap"
+          >
+            Region: 
+            Kanto
+          </p>
+        </div>
+        <div
+          class="w-full lg:w-[60%] flex-shrink-0 relative flex flex-col lg:flex-row items-center lg:items-start"
+        >
+          <span
+            class="font-bold opacity-20 text-9xl absolute lg:top-0 hidden lg:block"
+          >
+            ピカチュウ
+          </span>
+          <div
+            class="flex flex-col mt-4 self-start lg:self-center lg:mt-0 lg:ml-8"
+          >
+            <span
+              class="flex gap-2"
+            >
+              <strong>
+                Height:
+              </strong>
+              <p>
+                4m
+              </p>
+            </span>
+            <span
+              class="flex gap-2"
+            >
+              <strong>
+                Weight:
+              </strong>
+              <p>
+                6kg
+              </p>
+            </span>
+          </div>
+          <img
+            alt="pikachu"
+            class="place-self-center z-10 relative"
+            height="400"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            width="400"
+          />
+          <span
+            class="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-center opacity-20 text-9xl absolute  block lg:hidden"
+          >
+            ピカチュウ
+          </span>
+        </div>
+        <div
+          class="w-full lg:w-[25%] flex flex-col flex-shrink-0 gap-4"
+        >
+          <div
+            class="flex gap-2 flex-wrap"
+          >
+            <div
+              aria-label="electric"
+              class="flex w-fit items-center gap-2 text-white px-3 py-2 rounded-full bg-pokemon-electric p-4 rounded-full transition hover:scale-110"
+              data-testid="poke-badge"
+            >
+              <div
+                class="w-6 h-6 flex items-center justify-center rounded-full overflow-visible brightness-[10]"
+              >
+                <img
+                  alt="electric"
+                  height="13"
+                  src="/icons/png/filled/electric.png"
+                  width="13"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col gap-4"
+          >
+            <h2
+              class="text-3xl font-bold drop-shadow-2xl"
+            >
+              Base Stats:
+            </h2>
+            <div
+              class="flex flex-wrap gap-2 border-l-4 border-white/40 px-4"
+            >
+              <p
+                class="text-xs w-fit shadow-lg font-semibold uppercase text-center text-gray-700 bg-white rounded-xl py-2 px-5 hover:bg-gray-100"
+              >
+                HP: 35
+              </p>
+              <p
+                class="text-xs w-fit shadow-lg font-semibold uppercase text-center text-gray-700 bg-white rounded-xl py-2 px-5 hover:bg-gray-100"
+              >
+                Attack: 55
+              </p>
+              <p
+                class="text-xs w-fit shadow-lg font-semibold uppercase text-center text-gray-700 bg-white rounded-xl py-2 px-5 hover:bg-gray-100"
+              >
+                Defense: 40
+              </p>
+              <p
+                class="text-xs w-fit shadow-lg font-semibold uppercase text-center text-gray-700 bg-white rounded-xl py-2 px-5 hover:bg-gray-100"
+              >
+                SP. Attack: 50
+              </p>
+              <p
+                class="text-xs w-fit shadow-lg font-semibold uppercase text-center text-gray-700 bg-white rounded-xl py-2 px-5 hover:bg-gray-100"
+              >
+                SP. Defense: 50
+              </p>
+              <p
+                class="text-xs w-fit shadow-lg font-semibold uppercase text-center text-gray-700 bg-white rounded-xl py-2 px-5 hover:bg-gray-100"
+              >
+                Speed: 90
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div
+        class="w-fit flex justify-center self-center md:flex-row lg:flex-col lg:absolute lg:top-0 lg:right-0"
+      >
+        <div
+          class="relative flex items-center py-4 w-full max-w-full overflow-hidden flex-row justify-center lg:flex-col lg:h-screen md:h-auto"
+        >
+          <button
+            class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-2 py-2 bg-transparent text-white rounded-md hover:scale-110 disabled:opacity-50 hover:text-red-500 transition"
+            data-testid="previous-button"
+            disabled=""
+          >
+            <span>
+              ChevronLeft Icon
+              ChevronLeft Icon
+            </span>
+          </button>
+          <div
+            class="flex space-x-1 md:flex-row lg:flex-col md:space-x-2 lg:space-x-0 md:space-y-0 lg:space-y-2 overflow-hidden"
+          >
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent !scale-125 font-bold"
+              data-testid="pagination-button-1"
+            >
+              <span>
+                1
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-2"
+            >
+              <span>
+                2
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-3"
+            >
+              <span>
+                3
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-4"
+            >
+              <span>
+                4
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-5"
+            >
+              <span>
+                5
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-6"
+            >
+              <span>
+                6
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-7"
+            >
+              <span>
+                7
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-8"
+            >
+              <span>
+                8
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-9"
+            >
+              <span>
+                9
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-10"
+            >
+              <span>
+                10
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-11"
+            >
+              <span>
+                11
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-12"
+            >
+              <span>
+                12
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-13"
+            >
+              <span>
+                13
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-14"
+            >
+              <span>
+                14
+              </span>
+            </button>
+            <button
+              class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+              data-testid="pagination-button-15"
+            >
+              <span>
+                15
+              </span>
+            </button>
+          </div>
+          <button
+            class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-2 py-2 bg-transparent text-white rounded-md disabled:opacity-50 hover:text-red-500 transition"
+            data-testid="next-button"
+          >
+            <span>
+              ChevronDown Icon
+              ChevronLeft Icon
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

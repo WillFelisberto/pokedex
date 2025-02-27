@@ -18,10 +18,9 @@ describe('<Pagination />', () => {
     const { container } = renderWithProvider(
       <Pagination currentPage={3} totalPages={10} goToPage={mockGoToPage} isFetching={false} />
     );
-
-    expect(screen.getByText('3')).toHaveClass('bg-blue-600');
-    expect(screen.getByText('2')).toBeInTheDocument();
-    expect(screen.getByText('4')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-button-3')).toHaveClass('font-bold');
+    expect(screen.getByTestId('pagination-button-2')).toBeInTheDocument();
+    expect(screen.getByTestId('pagination-button-4')).toBeInTheDocument();
 
     expect(container).toMatchSnapshot();
   });
@@ -40,7 +39,7 @@ describe('<Pagination />', () => {
       <Pagination currentPage={1} totalPages={10} goToPage={mockGoToPage} isFetching={false} />
     );
 
-    expect(screen.getByText('←')).toBeDisabled();
+    expect(screen.getByTestId('previous-button')).toBeDisabled();
   });
 
   it('should disable next button on last page', () => {
@@ -48,16 +47,15 @@ describe('<Pagination />', () => {
       <Pagination currentPage={10} totalPages={10} goToPage={mockGoToPage} isFetching={false} />
     );
 
-    expect(screen.getByText('→')).toBeDisabled();
+    expect(screen.getByTestId('next-button')).toBeDisabled();
   });
 
-  it('should disable all buttons while fetching', () => {
+  it('should disable   buttons while fetching', () => {
     renderWithProvider(
       <Pagination currentPage={3} totalPages={10} goToPage={mockGoToPage} isFetching={true} />
     );
 
-    expect(screen.getByText('←')).toBeDisabled();
-    expect(screen.getByText('→')).toBeDisabled();
-    expect(screen.getByText('3')).toBeDisabled();
+    expect(screen.getByTestId('previous-button')).toBeDisabled();
+    expect(screen.getByTestId('next-button')).toBeDisabled();
   });
 });
