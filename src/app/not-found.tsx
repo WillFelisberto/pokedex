@@ -1,5 +1,31 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 
+export const metadata: Metadata = {
+  title: '404 - Pokémon Not Found!',
+  description: 'Oops! Your Pokémon has escaped. Try searching again or go back home.',
+  openGraph: {
+    title: '404 - Pokémon Not Found!',
+    description: 'Oops! Your Pokémon has escaped. Try searching again or go back home.',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/404`,
+    siteName: 'Pokédex',
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/pokedex.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Pokémon Not Found - 404 Error'
+      }
+    ],
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '404 - Pokémon Not Found!',
+    description: 'Oops! Your Pokémon has escaped. Try searching again or go back home.',
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/pokedex.png`]
+  }
+};
 export default function NotFound() {
   return (
     <main className="h-screen w-full flex flex-col justify-center items-center bg-[#fee24d]">
