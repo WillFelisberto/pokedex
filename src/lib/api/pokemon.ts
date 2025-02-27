@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { notFound } from 'next/navigation';
+
 import { PokemonProps } from '@/components/organisms/PokeCard';
 
 import { PokemonType } from '@/lib/utils/poketypes';
@@ -82,7 +84,9 @@ function extractPokemonId(url: string): number {
 
 export async function fetchPokemonById(id: string): Promise<PokemonProps> {
   const response = await fetch(`${process.env.NEXT_PUBLIC_POKEAPI_URL}/pokemon/${id}`);
-  if (!response.ok) throw new Error('Pokémon não encontrado');
+  if (!response.ok) {
+    notFound();
+  }
 
   const data = await response.json();
 

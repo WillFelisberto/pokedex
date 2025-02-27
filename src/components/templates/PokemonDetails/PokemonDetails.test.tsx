@@ -1,32 +1,28 @@
-import { PaginationProvider } from '@/context/PaginationContext';
 import { useImageColors } from '@/hooks/useImageColors';
+import { usePokemonDetails } from '@/hooks/usePokemonDetails';
 import { render, screen } from '@/tests/test-utils';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { PokemonProps } from '@/components/organisms/PokeCard';
-
-import { PokemonDetails } from './PokemonDetails';
+import { PokemonDetails, PokemonDetailsProps } from './PokemonDetails';
 
 jest.mock('@/hooks/useImageColors', () => ({
   useImageColors: jest.fn()
 }));
 
-const mockPokemon: Pick<
-  PokemonProps,
-  | 'sprites'
-  | 'types'
-  | 'baseStats'
-  | 'height'
-  | 'weight'
-  | 'id'
-  | 'name'
-  | 'japaneseName'
-  | 'region'
-> = {
+jest.mock('@/hooks/usePokemonDetails', () => ({
+  usePokemonDetails: jest.fn()
+}));
+
+const mockPokemon: PokemonDetailsProps = {
+  totalPages: 1000,
   id: 25,
   name: 'pikachu',
   japaneseName: 'ピカチュウ',
   region: 'Kanto',
-  sprites: { front_default: '/pikachu.png' },
+  sprites: {
+    front_default:
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png'
+  },
   types: ['electric'],
   height: 40,
   weight: 60,
@@ -40,20 +36,45 @@ const mockPokemon: Pick<
   }
 };
 
+jest.mock('next/navigation', () => ({
+  useRouter: jest.fn(() => ({ push: jest.fn() })),
+  useParams: jest.fn(() => ({ slug: 'pikachu' }))
+}));
+
+const queryClient = new QueryClient();
+
 const renderWithProvider = (ui: React.ReactNode) => {
-  return render(<PaginationProvider>{ui}</PaginationProvider>);
+  return render(<QueryClientProvider client={queryClient}>{ui}</QueryClientProvider>);
 };
 
 describe('<PokemonDetails />', () => {
-  it('should render the Pokémon details correctly', () => {
-    (useImageColors as jest.Mock).mockReturnValue({ isLoading: false });
+  beforeEach(() => {
+    (usePokemonDetails as jest.Mock).mockReturnValue({
+      pokemon: mockPokemon,
+      isFetching: false,
+      currentPage: 1,
+      goToPage: jest.fn()
+    });
 
-    renderWithProvider(<PokemonDetails {...mockPokemon} />);
+    (useImageColors as jest.Mock).mockReturnValue({ isLoading: false });
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should render the Pokémon details correctly', () => {
+    const { container } = renderWithProvider(<PokemonDetails {...mockPokemon} />);
 
     expect(screen.getByText(`#${mockPokemon.id}`)).toBeInTheDocument();
     expect(screen.getByText(mockPokemon.name)).toBeInTheDocument();
     if (mockPokemon.japaneseName) {
-      expect(screen.getByText(mockPokemon.japaneseName)).toBeInTheDocument();
+      expect(
+        screen
+          .getAllByText(mockPokemon.japaneseName)
+          .map((item) => item.textContent)
+          .pop()
+      ).toBe(mockPokemon.japaneseName);
     }
 
     const image = screen.getByAltText(mockPokemon.name);
@@ -74,21 +95,25 @@ describe('<PokemonDetails />', () => {
       screen.getByText(`SP. Defense: ${mockPokemon.baseStats.specialDefense}`)
     ).toBeInTheDocument();
     expect(screen.getByText(`Speed: ${mockPokemon.baseStats.speed}`)).toBeInTheDocument();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('should show the loader when isLoading is true', () => {
     (useImageColors as jest.Mock).mockReturnValue({ isLoading: true });
+    (usePokemonDetails as jest.Mock).mockReturnValue({ pokemon: null, isFetching: true });
 
     renderWithProvider(<PokemonDetails {...mockPokemon} />);
 
-    expect(screen.getByAltText('Loading...')).toBeInTheDocument();
+    expect(screen.getByTestId('loader')).toBeInTheDocument();
   });
 
   it('should not show the loader when isLoading is false', () => {
     (useImageColors as jest.Mock).mockReturnValue({ isLoading: false });
+    (usePokemonDetails as jest.Mock).mockReturnValue({ pokemon: mockPokemon, isFetching: false });
 
     renderWithProvider(<PokemonDetails {...mockPokemon} />);
 
-    expect(screen.queryByAltText('Loading...')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('loader')).not.toBeInTheDocument();
   });
 });

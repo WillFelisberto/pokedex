@@ -3,42 +3,109 @@
 exports[`<Pagination /> should render pagination with correct number of pages 1`] = `
 <div>
   <div
-    class="flex items-center gap-2 py-4"
+    class="relative flex items-center py-4 w-full max-w-full overflow-hidden flex-row justify-center lg:flex-col lg:h-screen md:h-auto"
   >
     <button
-      class="px-4 py-2 bg-gray-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition"
+      class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-2 py-2 bg-transparent text-white rounded-md hover:scale-110 disabled:opacity-50 hover:text-red-500 transition"
+      data-testid="previous-button"
     >
-      ←
+      <span>
+        ChevronLeft Icon
+        ChevronLeft Icon
+      </span>
     </button>
-    <button
-      class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+    <div
+      class="flex space-x-1 md:flex-row lg:flex-col md:space-x-2 lg:space-x-0 md:space-y-0 lg:space-y-2 overflow-hidden"
     >
-      1
-    </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-1"
+      >
+        <span>
+          1
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-2"
+      >
+        <span>
+          2
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent !scale-125 font-bold"
+        data-testid="pagination-button-3"
+      >
+        <span>
+          3
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-4"
+      >
+        <span>
+          4
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-5"
+      >
+        <span>
+          5
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-6"
+      >
+        <span>
+          6
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-7"
+      >
+        <span>
+          7
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-8"
+      >
+        <span>
+          8
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-9"
+      >
+        <span>
+          9
+        </span>
+      </button>
+      <button
+        class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-4 py-2 rounded-md transition bg-transparent text-white hover:scale-125 disabled:opacity-50"
+        data-testid="pagination-button-10"
+      >
+        <span>
+          10
+        </span>
+      </button>
+    </div>
     <button
-      class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+      class="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed px-2 py-2 bg-transparent text-white rounded-md disabled:opacity-50 hover:text-red-500 transition"
+      data-testid="next-button"
     >
-      2
-    </button>
-    <button
-      class="px-4 py-2 rounded-md transition bg-blue-600 text-white font-bold disabled:opacity-50 disabled:cursor-not-allowed"
-    >
-      3
-    </button>
-    <button
-      class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-    >
-      4
-    </button>
-    <button
-      class="px-4 py-2 rounded-md transition bg-gray-700 text-white hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
-    >
-      5
-    </button>
-    <button
-      class="px-4 py-2 bg-gray-700 text-white rounded-md disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition"
-    >
-      →
+      <span>
+        ChevronDown Icon
+        ChevronLeft Icon
+      </span>
     </button>
   </div>
 </div>

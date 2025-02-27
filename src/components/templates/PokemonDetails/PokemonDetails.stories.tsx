@@ -1,60 +1,40 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { BackgroundColorProvider } from '@/context/BackgroundColorContext';
 import type { Meta, StoryObj } from '@storybook/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { PokemonDetails } from './PokemonDetails';
-
-const withBackgroundProvider = (Story: React.ComponentType) => (
-  <BackgroundColorProvider>
-    <Story />
-  </BackgroundColorProvider>
-);
-
-const mockUseImageColors = (isLoading: boolean) => ({
-  isLoading,
-  colors: {
-    vibrant: '#b45646',
-    muted: '#9c8551',
-    darkVibrant: '#7e643c',
-    darkMuted: '#5b4b31',
-    lightVibrant: '#f4d47c',
-    lightMuted: '#c1899c'
-  }
-});
-
-const MockedPokemonDetails = (props: any) => {
-  const { isLoading, ...rest } = props;
-
-  const useImageColors = () => mockUseImageColors(isLoading);
-
-  return <PokemonDetails {...rest} useImageColors={useImageColors} />;
-};
+const queryClient = new QueryClient();
 
 const meta: Meta<typeof PokemonDetails> = {
   title: 'Templates/PokemonDetails',
-  component: MockedPokemonDetails,
+  component: PokemonDetails,
+  decorators: [
+    (Story) => (
+      <QueryClientProvider client={queryClient}>
+        <Story />
+      </QueryClientProvider>
+    )
+  ],
   tags: ['autodocs'],
-  decorators: [withBackgroundProvider],
-
   args: {
-    id: 25,
-    name: 'Pikachu',
-    japaneseName: 'ピカチュウ',
+    id: 1,
+    name: 'bulbasaur',
+    japaneseName: 'フシギダネ',
     region: 'Kanto',
+    height: 70,
+    weight: 69,
+    totalPages: 5,
     sprites: {
       front_default:
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png'
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'
     },
-    types: ['electric'],
-    height: 40,
-    weight: 60,
+    types: ['grass', 'poison'],
     baseStats: {
-      hp: 35,
-      attack: 55,
-      defense: 40,
-      specialAttack: 50,
-      specialDefense: 50,
-      speed: 90
+      hp: 45,
+      attack: 49,
+      defense: 49,
+      specialAttack: 65,
+      specialDefense: 65,
+      speed: 45
     }
   }
 };

@@ -8,6 +8,7 @@ interface ButtonProps {
   disabled?: boolean;
   href?: string; // Adicionamos a opção de link
   target?: '_blank' | '_self' | '_parent' | '_top'; // Para abrir em nova aba, etc.
+  testId?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -17,15 +18,17 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled = false,
   href,
-  target = '_self'
+  target = '_self',
+  testId
 }) => {
   const commonClasses =
-    'flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed';
+    'flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white transition disabled:opacity-50 disabled:cursor-not-allowed';
 
   // Se `href` for passado, renderiza um link (<a>)
   if (href) {
     return (
       <a
+        data-testid={testId}
         href={href}
         target={target}
         rel={target === '_blank' ? 'noopener noreferrer' : undefined}
@@ -39,7 +42,12 @@ export const Button: React.FC<ButtonProps> = ({
 
   // Se não for um link, renderiza um <button>
   return (
-    <button className={`${commonClasses} ${className}`} onClick={onClick} disabled={disabled}>
+    <button
+      data-testid={testId}
+      className={`${commonClasses} ${className}`}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {icon && <span>{icon}</span>}
       {text && <span>{text}</span>}
     </button>

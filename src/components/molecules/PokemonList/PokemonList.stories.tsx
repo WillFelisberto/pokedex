@@ -1,29 +1,14 @@
-import { mockPokemon } from '@/mocks/pokemonMock';
 import type { Meta, StoryObj } from '@storybook/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 
-import { PokeCard } from '@/components/organisms/PokeCard';
-
-const MockedPokemonList = () => {
-  const pokemons = [mockPokemon];
-
-  return (
-    <div className="flex flex-col items-center p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-[10px]">
-        {pokemons.map((pokemon) => (
-          <PokeCard key={pokemon.id} pokemon={pokemon} />
-        ))}
-      </div>
-    </div>
-  );
-};
+import { PokemonList } from './PokemonList';
 
 const queryClient = new QueryClient();
 
-const meta: Meta<typeof MockedPokemonList> = {
+const meta: Meta<typeof PokemonList> = {
   title: 'Organisms/PokemonList',
-  component: MockedPokemonList,
+  component: PokemonList,
   decorators: [
     (Story) => (
       <QueryClientProvider client={queryClient}>
@@ -37,6 +22,6 @@ const meta: Meta<typeof MockedPokemonList> = {
 
 export default meta;
 
-type Story = StoryObj<typeof MockedPokemonList>;
+type Story = StoryObj<typeof PokemonList>;
 
 export const Default: Story = {};
